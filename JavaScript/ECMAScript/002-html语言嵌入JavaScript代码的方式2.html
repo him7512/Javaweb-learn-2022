@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<script type="application/javascript">
+
+  /*
+    脚本块可以在任意地方显示
+   */
+  // 这是单行注释
+  //alert指令会阻塞页面的加载
+
+  window.alert("1")
+
+</script>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>脚本块的方式</title>
+</head>
+<body>
+
+<input type="button" value="按钮1">
+
+<script type="application/javascript">
+
+  /*
+    暴露在脚本块当中的程序，在页面打开的时候执行，并且遵守自上而下的顺序依次执行
+    这个代码的执行不需要事件
+   */
+
+  window.alert("2")
+
+</script>
+
+<input type="button" value="按钮2">
+
+</body>
+</html>

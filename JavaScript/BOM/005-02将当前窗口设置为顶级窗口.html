@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02将当前窗口设置为顶级窗口</title>
+</head>
+<body>
+02界面 &nbsp;
+<input type="button" value="将02窗口设置为顶级窗口" id="ben1" onclick="top02()">
+
+<script type="text/javascript">
+    function top02() {
+        if (window.top != window.self) {
+            window.top.location = window.self.location;
+        }
+    }
+
+</script>
+
+</body>
+</html>

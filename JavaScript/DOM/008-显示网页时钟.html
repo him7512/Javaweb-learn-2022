@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示网页时钟</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+  let time = new Date();
+  document.write(time);
+  document.write("<br>");
+  time = time.toLocaleString();
+  document.write(time);
+  document.write("<br>");
+
+  let t = new Date();
+  let year = t.getFullYear();
+  let month = t.getMonth();   //0-11
+  let weekDay = t.getDay();  //获取一周的第几天0-6
+  let day = t.getDate();
+  document.write(year + "年" + month + "月" + day + "日" + " 周" + weekDay);
+  document.write("<br>");
+
+  //获取毫秒数
+  document.write(new Date().getTime());
+
+</script>
+
+<br><br><br>
+
+<input type="button" value="走~" id="btn1">&nbsp;
+<input type="button" value="停~" id="btn2">
+<br>
+<div id="div1">
+
+</div>
+
+<script type="text/javascript">
+  //存在问题，点击两次走以后就停不住了！
+
+  show_time();
+
+  function show_time() {
+    let div1 = document.getElementById("div1");
+    let show_time = new Date();
+    div1.innerText = show_time.toLocaleString();
+  }
+
+  let btn1 = document.getElementById("btn1");
+  let btn2 = document.getElementById("btn2");
+  btn1.onclick = function() {
+    show = window.setInterval("show_time()", 1000);  //setInterval这个函数可以让某个语句或者任务每隔x时间运行
+  }
+  btn2.onclick = function() {
+    window.clearInterval(show);   //clearInterval这个函数就是终止任务的
+  }
+
+
+
+</script>
+
+
+
+</body>
+</html>

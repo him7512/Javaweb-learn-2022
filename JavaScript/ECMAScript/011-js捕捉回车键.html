@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS捕捉回车键</title>
+</head>
+<body>
+
+<input type="text" id="text1">
+<input type="button" id="btn1" value="显示按键">
+<br>
+<input type="button" id="btn2" value="显示当前按键的键值(键盘触发)">
+
+<script type="text/javascript">
+  //
+  document.getElementById("btn1").onclick = function () {
+    alert(document.getElementById("text1").value);
+  }
+
+  //补充！当有所行动的时候，浏览器会将行动可能传入的参数发送给某个你所定义的函数，但是你所应以的函数不一定要接受这个参数，这取决于你定义函数配置的形参。
+  document.getElementById("btn2").onkeydown = function(event) {
+    //alert(event.keyCode);
+    if (event.keyCode === 13) {
+      alert("开始连接...");
+    }else {
+      alert("请输入回车键登录！");
+    }
+  }
+
+
+</script>
+
+
+</body>
+</html>

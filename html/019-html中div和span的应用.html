@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML中div和span的应用</title>
+</head>
+<body>
+<!--
+  1 div和span是什么？有什么用？
+    * div和span都可以称之为-图层
+    * 图层的作用是为了保证页面可以灵活的布局
+    * 图层就是一个一个的盒子，div嵌套div就是盒子套盒子
+    * div和span是可以定位的，只要顶下div左上角的x轴和y轴坐标即可
+  2 其实最早的网页是table进行布局，但table布局不灵活
+    * 现广泛网页开发使用div进行布局
+  3 div和span的区别
+    * div独占一行(默认情况下)，span不是
+    * span不会独自占用一行
+-->
+
+<div id="div1">我是一个div</div>
+<div id="div2">我是一个div</div>
+
+<span id="span1">我是一个span</span>
+<span id="span2">我是一个span</span>
+
+<div id="div3">
+  <div id="div4">
+    hahahaha
+  </div>
+</div>
+
+</body>
+</html>

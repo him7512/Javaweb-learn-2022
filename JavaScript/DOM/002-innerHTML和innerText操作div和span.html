@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>innerHTML和innerText操作div和span</title>
+    <style type="text/css">
+        #div1 {
+            background-color: tan;
+            left: 100px;
+            top: 100px;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            border: 1px black solid;
+        }
+    </style>
+</head>
+
+<body>
+
+<input type="button" id="btn1" value="点击更改div属性!">
+
+<div id="div1">
+</div>
+
+<script type="text/javascript">
+    document.getElementById("btn1").onclick = function () {
+        /*
+            innerHTML会把后面的内容当作html代码执行
+            innerText会把后面的内容当作文本执行
+         */
+        document.getElementById("div1").innerHTML = "<input type='text' value='嗯哼宝贝儿~'>" + "<br>";
+        // document.getElementById("div1").innerText = "<input type='text' value='嗯哼宝贝儿~'>" + "<br>";
+    }
+
+</script>
+
+
+
+</body>
+</html>

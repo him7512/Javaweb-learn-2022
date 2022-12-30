@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出确认消息框</title>
+</head>
+<body>
+
+<input type="button" value="删除" id="btn_delete">
+
+<input type="button" value="消息" id="btn" onclick="window.alert('消息框')">
+
+
+<script type="text/javascript">
+  let btn_delete = document.getElementById("btn_delete");
+  btn_delete.onclick = function () {
+    // let ms = window.confirm("鸡你太美?");
+    // if (ms) {
+    //   alert("美了美了...");
+    // } else {
+    //   alert("暂时撤退");
+    // }
+    if (window.confirm("鸡你太美?")) {
+      alert("美了美了");
+    }
+  }
+
+</script>
+
+</body>
+</html>

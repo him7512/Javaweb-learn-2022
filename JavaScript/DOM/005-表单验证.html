@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+
+    <style type="text/css">
+        #div1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -100px 0 0 -100px;
+            line-height: 30px;
+        }
+        span {
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--
+  需求：
+    1 用户名不能为空
+    2 用户名必须在6-14位之间
+    3 用户名只能由数字与字母组成，不能含有其他符号
+    4 密码和确认密码一致
+    5 邮箱地址合法
+    6 统一失去焦点验证
+    7 错误提示信息同意在span中显示，红色字号12
+    8 文本框再次获得焦点时，清空错误信息，如果文本框中数据不合法要求清空文本框中信息
+    9 最终表单中所有项均合法方可提交
+-->
+
+<div id="div1">
+    <h3>表单验证实现</h3>
+    <form method="get" action="http://localhost:8080/lq/login/save" id="f1">
+        <input type="text" id="input_emile" placeholder="请输入您的邮箱" name="emile">&nbsp;
+        <span id="show_emile" style="font-size: 12px"></span><br>
+        <input type="text" id="input_username" placeholder="请输入用户名" name="username">&nbsp;
+        <span id="show_username" style="font-size: 12px"></span><br>
+        <input type="text" id="input_userpwd" placeholder="密码由14位数字字母下划线组成">&nbsp;
+        <span id="show_userpwd" style="font-size: 12px"></span><br>
+        <input type="text" id="input_userpwd_makesure" placeholder="请再次确认密码" name="password">&nbsp;
+        <span id="show_userpwd_makesure" style="font-size: 12px"></span><br>
+        <input type="button" id="btn1" value="注册">
+    </form>
+</div>
+
+<input type="button" value="关闭页面" onclick="window.close()">
+
+<script type="text/javascript">
+    //emile
+    var emile = document.getElementById("input_emile");
+    var span_emile = document.getElementById("show_emile");
+    //失去焦点检测正误
+    var emile_ifEroor = false;
+    emile.onblur = function () {
+        var input_emile = emile.value;
+        if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(input_emile)) {
+            span_emile.style = "color: green";
+            span_emile.innerText = "√";
+            emile_ifEroor = true;
+        } else {
+            span_emile.style = "color: red";
+            span_emile.innerText = "×请输入正确的邮箱地址";
+        }
+    }
+    //获得焦点重置正误
+    emile.onfocus = function () {
+        span_emile.innerText = "";
+        if (!emile_ifEroor) {
+            emile.value = "";
+        }
+    }
+
+    //username
+    var username = document.getElementById("input_username");
+    var span_username = document.getElementById("show_username");
+    //失去焦点检测正误
+    var username_ifEroor = false;
+    username.onblur = function () {
+        var input_username = username.value;
+        if (/^[A-Za-z0-9]{6,14}$/.test(input_username)) {
+            span_username.style = "color: green";
+            span_username.innerText = "√";
+            username_ifEroor = true;
+        } else {
+            span_username.style = "color: red";
+            span_username.innerText = "×请输入正确的用户名";
+        }
+    }
+    //获得焦点重置正误
+    username.onfocus = function () {
+        span_username.innerText = "";
+        if (!username_ifEroor) {
+            username.value = "";
+        }
+    }
+
+    //password
+    var userpwd = document.getElementById("input_userpwd");
+    var span_userpwd = document.getElementById("show_userpwd");
+    //失去焦点检测正误
+    var userpwd_ifEroor = false;
+    userpwd.onblur = function () {
+        var input_userpwd = userpwd.value;
+        if (/^[A-Za-z0-9_]{1,14}$/.test(input_userpwd)) {
+            span_userpwd.style = "color: green";
+            span_userpwd.innerText = "√";
+            userpwd_ifEroor = true;
+        } else {
+            span_userpwd.style = "color: red";
+            span_userpwd.innerText = "×请输入正确的密码格式";
+        }
+    }
+    //获得焦点重置正误
+    userpwd.onfocus = function () {
+        span_userpwd.innerText = "";
+        if (!userpwd_ifEroor) {
+            userpwd.value = "";
+        }
+    }
+
+    //password_mekesure
+    var pwd_ms_ifError = false;
+    var pwd_ms = document.getElementById("input_userpwd_makesure");
+    var span_pwd_ms = document.getElementById("show_userpwd_makesure");
+    pwd_ms.onblur = function() {
+        if (pwd_ms.value == userpwd.value) {
+            span_pwd_ms.style = "color: green";
+            span_pwd_ms.innerText = "√";
+            pwd_ms_ifError = true;
+        } else {
+            span_pwd_ms.style = "color: red";
+            span_pwd_ms.innerText = "×请检查";
+        }
+    }
+    //获得焦点重置正误
+    pwd_ms.onfocus = function () {
+        span_pwd_ms.innerText = "";
+        if (!pwd_ms_ifError) {
+            pwd_ms.value = "";
+        }
+    }
+
+
+    //注册
+    document.getElementById("btn1").onclick = function () {
+        // if (emile_ifEroor && username_ifEroor && userpwd_ifEroor && pwd_ms_ifError) {
+        //     alert("注册中...")
+        //     document.getElementById("f1").submit();
+        // } else {
+        //     alert("未知错误，请联系管理员")
+        // }
+
+        // username.blur();       //触发某id的某个事件
+
+        if (emile_ifEroor && username_ifEroor && userpwd_ifEroor && pwd_ms_ifError) {
+            alert("注册中...")
+            document.getElementById("f1").submit();
+        } else {
+            alert("未知错误，请联系管理员")
+        }
+    }
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

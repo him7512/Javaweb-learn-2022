@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框的全选和取消全选</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  // window.onload = function () {
+  //   document.getElementById("cb1").onclick = function () {
+  //     var cb_hobby = document.getElementsByName("hobby");
+  //     if (document.getElementById("cb1").checked) {     //checked 转化成boolean类型，true是选中，false是未选中
+  //       // alert("已被选中");
+  //       for (let i = 0; i < cb_hobby.length; i++) {
+  //         cb_hobby[i].checked = true;
+  //       }
+  //     } else {
+  //       // alert("未被选中");
+  //       for (let i = 0; i < cb_hobby.length; i++) {
+  //         cb_hobby[i].checked = false;
+  //       }
+  //     }
+  //   }
+  // }
+
+  window.onload = function () {
+
+    // 全选
+    let cb1 = document.getElementById("cb1");
+    let cb_hobby = document.getElementsByName("hobby");
+    cb1.onclick = function() {
+      if (cb1.checked) {
+        for (let i = 0; i < cb_hobby.length; i++) {
+          cb_hobby[i].checked = true;
+        }
+      } else {
+        for (let i = 0; i < cb_hobby.length; i++) {
+          cb_hobby[i].checked = false;
+        }
+      }
+    }
+
+    // 通过其它操作全选
+    for (let i = 0; i < cb_hobby.length; i++) {
+      cb_hobby[i].onclick = function () {
+        let num = 0;
+        for (let j = 0; j < cb_hobby.length; j++) {
+          if (cb_hobby[j].checked) {
+            num ++;
+          }
+        }
+        // if (num == cb_hobby.length) {
+        //   cb1.checked = true;
+        // } else {
+        //   cb1.checked = false;
+        // }
+        cb1.checked = (num == cb_hobby.length);
+      }
+    }
+    
+    
+    
+  }
+
+</script>
+
+<input type="checkbox" value="全选" id="cb1">全选<br>
+<input type="checkbox" value="抽烟" name="hobby" id="cb2">抽烟<br>
+<input type="checkbox" value="喝酒" name="hobby" id="cb3">喝酒<br>
+<input type="checkbox" value="烫头" name="hobby" id="cb4">烫头<br>
+
+
+</body>
+</html>

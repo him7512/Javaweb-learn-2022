@@ -1,0 +1,23 @@
+/*
+    id选择器
+ */
+#errorMsg {
+    font-size: 20px;
+    color: brown;
+}
+
+/*
+    标签选择器
+ */
+div {
+    background-color: coral;
+    width: 100px;
+    height: 100px;
+}
+
+/*
+    类选择器
+ */
+.myclass {
+    border: 2px solid red;
+}

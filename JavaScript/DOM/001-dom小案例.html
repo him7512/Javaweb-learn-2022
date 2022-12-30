@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM小案例</title>
+</head>
+<body>
+
+<input type="text" id="t1"> &nbsp;
+<input type="button" id="btn1" value="交换"> <br>
+<input type="text" id="t2">
+<br>
+<br>
+<input type="text" id="t3" onblur="alert(this.value)">
+
+<script type="text/javascript">
+  document.getElementById("btn1").onclick = function () {
+    // var text_t1 = document.getElementById("t1").value;
+    // var text_t2 = document.getElementById("t2").value;
+    // document.getElementById("t1").value = text_t2;
+    // document.getElementById("t2").value = text_t1;
+
+    var text_t2 = document.getElementById("t2").value;
+    document.getElementById("t2").value = document.getElementById("t1").value;
+    document.getElementById("t1").value = text_t2;
+
+
+  }
+</script>
+
+</body>
+</html>

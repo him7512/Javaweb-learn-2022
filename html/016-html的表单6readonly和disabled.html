@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML的readonly和disabled</title>
+</head>
+<body>
+<form action="http://localhost:8080/save">
+    <!--
+        readonly和disabled都只能看不能修改
+        但是在提交表单的时候，readonly可以提交数据给服务器，disabled却不会
+    -->
+  用户名<input type="text" name="username" value="2020203116" readonly>
+  <br>
+  姓名<input type="text" name="username2" value="liuqi" disabled>
+</form>
+
+</body>
+</html>

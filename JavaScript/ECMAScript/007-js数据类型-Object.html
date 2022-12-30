@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object</title>
+</head>
+<body>
+
+<script>
+  /*
+    Object类型：
+        1 Object类型是所有类型的超累，自定义的任何类型，默认继承Object
+        2 Object类包括哪些属性：
+            prototype属性(常用)
+            constructor属性
+        3 Object类包括哪些函数
+            toString()
+            valueOf()
+        4 JS中定义的类默认继承Object，会继承object类中所有的属性以及函数
+          换句话说，自己定义的类中也有prototype属性
+
+        5 在JS中如何定义类？
+            定义类的语法：
+                第一种方式：
+                function 类名(形参) {
+
+                }
+                第二种方式：
+                类名 = function(形参) {
+
+                }
+             创建对象的语法：
+                new 构造方法名(实参);  //构造方法名和类名一致
+
+   */
+
+/*
+  //定义类
+  function student(id, name, age) {
+    this.id = id;
+    this.name = name;
+    this.age = age;
+  }
+  //创建对象
+  var stu1 = new student(1, "张三", 18);
+  //访问对象属性
+  alert(stu1.id);
+  alert(stu1.name);
+  alert(stu1.age);
+  //访问一个对象的属性
+  alert(stu1["id"]);
+  alert(stu1["name"]);
+  alert(stu1["age"]);
+
+*/
+
+/*
+  //定义类的第二种方法
+  student = function(id, name, age) {
+    this.id = id;
+    this.name = name;
+    this.age = age;
+  }
+  //
+  var stu2 = new student(2, "李四", 19);
+  alert(stu2["name"] + "是个蠢蛋")
+*/
+
+  //
+  Product = function(pno, pname, price) {
+    //属性
+    this.pno = pno;
+    this.pname = pname;
+    this.price = price;
+    //方法
+    this.getPrice = function() {
+      return this.price;
+    }
+  }
+
+  var pro = new Product(1, "茄子", 10000);
+  var p11 = pro.getPrice();
+  alert(p11);    //10000
+
+  //可以通过prototype这个属性来给类动态扩展属性以及函数
+  Product.prototype.getName = function() {
+      return this.pname;
+  }
+
+  var p12 = pro.getName();
+  alert(p12);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

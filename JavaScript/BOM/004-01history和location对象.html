@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>history和location对象01</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    // goBaidu = function() {
+    //
+    // }
+
+    function goBaidu() {
+        document.location.href = "https://www.baidu.com";
+    }
+
+    function goTianmao() {
+        window.location.href = "https://www.tmall.com/";    //href可以省略
+    }
+</script>
+
+这里是A界面
+<a href="004-02history和location对象.html">
+    004-02B界面
+</a>&nbsp;&nbsp;
+<input type="button" value="<===" onclick="window.history.back()" id="back1">&nbsp;&nbsp;
+<input type="button" value="===>" onclick="window.history.go(1)" id="go1">
+<br>
+<input type="button" value="转到目标网址==>百度" id="goBaidu" onclick="goBaidu()">
+<input type="button" value="转到目标网址==>天猫" id="goTianmao" onclick="goTianmao()">
+
+<script type="text/javascript">
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS代码设置节点的属性</title>
+</head>
+<body>
+
+<!--顺序1，script代码在后，先加载完id后可直接索引到-->
+<!--
+<input type="text" id="text1" id="text1"> &nbsp;
+<input type="button" value="将文本框更变为复选框" id="btn1">
+
+<script type="text/javascript">
+  var btn1Obj = document.getElementById("btn1");
+  var text1Obj = document.getElementById("text1");
+
+  btn1Obj.onclick = function() {
+    text1Obj.type = "checkbox";
+  }
+
+</script>
+-->
+
+<!--顺序2，先加载后续，利用onload代码使得script在前-->
+<script type="text/javascript">
+  // window.onload = function() {
+  //   var btn2Obj = document.getElementById("btn2");
+  //   btn2Obj.onclick = function() {
+  //     var text2Obj = document.getElementById("text2");
+  //     text2Obj.type = "checkbox";
+  //   }
+  // }
+
+  //精简
+  window.onload = function () {
+      document.getElementById("btn2").onclick = function() {
+          // 标签里只要有的属性都可以.
+          document.getElementById("text2").type = "checkbox";
+      }
+  }
+
+</script>
+
+<input type="text" id="text2"> &nbsp;
+<input type="button" value="将文本框更变为复选框" id="btn2">
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trim方法</title>
+</head>
+<body>
+
+<input type="text" id="t1">
+<br>
+<input type="button" id="btn1" value="转换">
+
+<script type="text/javascript">
+  /*
+    在以前没有trim方法的时候可以使用prototype重写trim方法
+   */
+  String.prototype.trim = function() {
+    return this.replace(/^\s+/, "").replace(/\s+$/, "");
+  }
+
+  document.getElementById("btn1").onclick = function () {
+    alert("-----" + document.getElementById("t1").value.trim() + "-----");
+  }
+
+</script>
+
+</body>
+</html>

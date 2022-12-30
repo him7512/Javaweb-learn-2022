@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初识JSON</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /*
+    1 什么是json？json有什么用？
+        JavaScropt Object Notation（JavaScript对象标记）简称json，数据交换格式
+        json的主要作用是：一种标准的数据交换格式。（目前非常流行，90%以上的系统，系统A与系统B交换数据的话，都是采用JSON）
+    2 json是一种标准的轻量级的数据交换格式，特点是：
+        体积小
+        易解析
+    3 在实际开发中，有两种数据交换格式，使用最多，其一是json，另一种是xml
+        xml体积较大，解析麻烦，但是有其优点的是：语法严谨（通常银行内数据交换用xml）
+
+    4 JSON的语法格式
+        let/var jsonObj = {
+            "属性名" : "属性值",
+            "属性名" : "属性值",
+            "属性名" : "属性值",
+            ...
+        }
+
+        JSON可以无限嵌套，与XML相似
+
+     5
+
+   */
+
+  //之前没有JSON的时候，定义类，创建对象：
+  students = function (sno, sname, sex) {
+      this.sno = sno;
+      this.sname = sname;
+      this.sex = sex;
+  }
+
+  let stu1 = new students("001", "张三", "男");
+  alert("编号：" + stu1.sno + "，姓名：" + stu1.sname + "，性别：" + stu1.sex)
+
+  //有了JSON之后：
+  let students2  = [
+      {"sno":"002", "sname":"李四", "sex":"男"},
+      {"sno":"003", "sname":"王五", "sex":"男"},
+      {"sno":"004", "sname":"赵六", "sex":"男"}
+  ];
+  //遍历
+  for (let i in students2) {
+      alert("编号：" + students2[i].sno + "，姓名：" + students2[i].sname + "，性别：" + students2[i].sex)
+  }
+
+
+</script>
+
+</body>
+</html>

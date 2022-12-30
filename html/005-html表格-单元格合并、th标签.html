@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML单元格合并、th标签</title>
+</head>
+<body>
+<br><br><br><br><br><br>
+<table border="1px" align="center" width="60%" height="120px">
+    <!--th标签也是单元格标签，但是自带加粗居中-->
+    <tr>
+        <th>员工编号</th>
+        <th>员工薪资</th>
+        <th>部门名称</th>
+    </tr>
+    <tr>
+        <td>嘿嘿</td>
+        <td>啧啧</td>
+        <td>么么</td>
+    </tr>
+    <tr>
+        <td>芜湖</td>
+        <td>嘿咻</td>
+        <td rowspan="2">哎嘿</td>
+    </tr>
+    <tr>
+        <!--
+            column合并去掉需要合并的单元格之一
+        -->
+        <td colspan="2">啧啧</td>
+        <!--<td>呵呵</td>-->
+        <!--
+            row合并去掉需要合并的(大多选择后者)单元格之一
+        -->
+        <!--<td>GG</td>-->
+    </tr>
+</table>
+</body>
+</html>

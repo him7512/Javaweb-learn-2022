@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册表单</title>
+</head>
+<body>
+<!--
+  用户注册：
+    用户名
+    密码
+    确认密码
+    性别
+    兴趣爱好
+    学历
+    简介
+-->
+
+<!--
+  特别的-表单method属性：
+    get: 采用get方式提交的时候，用户的提交信息会显示在浏览器的地址栏上
+    post:采用post方式提交的时候，用户的提交信息不会显示在浏览器地址栏上
+    当用户中提交的信息含有敏感数据的时候，推荐使用post方法提交
+-->
+
+<form action="http://localhost:8080/zhuce" method="post">
+  <table align="center">
+    <tr>
+      <td>用户名</td>
+      <td><input type="text" name="username"></td>
+    </tr>
+    <tr>
+      <td>密码</td>
+      <td><input type="password" name="userpwd"></td>
+    </tr>
+    <tr>
+      <td>确认密码</td>
+      <td><input type="password"></td> <!--确认密码验证再JavaScript上完成，不需要提交服务器-->
+    </tr>
+    <tr>
+      <td>性别</td>
+      <td>
+        <!--
+          选择并不会直接提交数据，所以需要设置name
+          当多个选择name相同时，自动默认单选，当不同时候，自动默认多选
+          checked属性表明默认勾选该选项
+        -->
+        <input type="radio" name="gender" value="1" checked />男
+        &nbsp;
+        <input type="radio" name="gender" value="0" />女
+      </td>
+    </tr>
+    <tr>
+      <td>兴趣爱好</td>
+      <td>
+        <!--checkbox自带多选-->
+        <input type="checkbox" name="hobby" value="a" checked>唱
+        <input type="checkbox" name="hobby" value="b">跳
+        <input type="checkbox" name="hobby" value="c">rap
+      </td>
+    </tr>
+    <tr>
+      <td>学历</td>
+      <td>
+        <!--下拉框是select，并且默认选中是selected-->
+        <select name="grade">
+          <option value="gz">高中</option>
+          <option value="dz">大专</option>
+          <option value="dx" selected>大学</option>
+          <option value="ss">硕士研究生</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>简介</td>
+      <td>
+        <!--文本域是textarea，并且默认选中是selected
+            并且可以修改行数列数
+        -->
+        <textarea name="introduce" rows="5" cols="27">请填写个人简介</textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="submit" value="注册">
+        &nbsp;
+        <input type="reset" value="重置">
+      </td>
+    </tr>
+
+  </table>
+</form>
+
+</body>
+</html>

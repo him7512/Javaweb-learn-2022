@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js函数初步</title>
+</head>
+<body>
+
+<script>
+
+  function sum(a, b) {
+    window.alert(a + b)
+  }
+
+  sayHello = function(username) {
+    window.alert("hello" + username)
+  }
+
+  //在JS当中函数不能重名，当重名的时候，运行最后一个定义的函数，之前写的重名函数被覆盖掉了
+
+  function a() {
+    window.alert("aaa")
+  }
+
+  function a() {
+    window.alert("aaa aaa")
+  }
+
+  /*
+    java中有重载机制：
+      方法名或者函数名一直，形参不同
+    JS中没有参数限制，没有重载机制
+   */
+  function chongzai(a, b) {
+    window.alert(a + b)
+  }
+
+</script>
+
+<input type="button" value="10+20的结果" onclick="sum(10, 20)">
+<input type="button" value="欢迎张三" onclick="sayHello('张三')">
+<input type="button" value="重名函数覆盖测试" onclick="a()">
+<input type="button" value="重载" onclick="chongzai(1, 2, 3)">
+
+
+
+</body>
+</html>

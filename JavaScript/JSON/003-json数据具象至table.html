@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json具象至table</title>
+    <style type="text/css">
+      #span1 {
+        position: relative;
+        left: -10%;
+        font-size: 12px;
+      }
+    </style>
+</head>
+<body>
+
+<!--首先我拿到了一些java方向传来的json数据-->
+<script type="text/javascript">
+  let students = {
+    "total" : "6",
+    "stuent" : [
+      {"name" : "张三", "age" : "11", "sex" : "男"},
+      {"name" : "李四", "age" : "13", "sex" : "男"},
+      {"name" : "王五", "age" : "12", "sex" : "男"},
+      {"name" : "赵六", "age" : "14", "sex" : "男"},
+      {"name" : "孙七", "age" : "16", "sex" : "女"},
+      {"name" : "刘八", "age" : "13", "sex" : "男"}
+    ]
+  }
+</script>
+
+<!--其次我排表格的版-->
+<div align="center">
+  <h2>学生信息统计公示表</h2> <input type="button" value="显示信息" id="showInformation">
+  <hr style="color: aquamarine; height: 2px">
+  <table border="1px" style="width: 300px" id="tab1">
+    <thead>
+      <tr>
+        <td>学生姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+      </tr>
+    </thead>
+    <!--
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    -->
+
+
+  </table>
+  <span id="span1">共有<span id="num1">0</span>名学生</span>
+
+</div>
+
+<!--实现点击按钮后将java数据传入表格的功能-->
+<script type="text/javascript">
+  document.getElementById("showInformation").onclick = function () {
+    let inf_student = students.stuent;
+    let add_html_table = "";
+    for (let i = 0; i < inf_student.length; i++) {
+      add_html_table += "<tr>";
+      add_html_table += "<td>" + inf_student[i].name + "</td>";
+      add_html_table += "<td>" + inf_student[i].age + "</td>";
+      add_html_table += "<td>" + inf_student[i].sex + "</td>";
+      add_html_table += "</tr>";
+    }
+    document.getElementById("tab1").innerHTML = add_html_table;
+    document.getElementById("num1").innerText = students.total; // inf_student.length;
+  }
+
+
+
+</script>
+
+
+
+</body>
+</html>

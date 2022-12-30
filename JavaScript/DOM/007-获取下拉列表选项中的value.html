@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取下拉列表选项中的value</title>
+</head>
+<body>
+
+
+<!--
+<select onchange="alert(this.value)"> 我的理解激素onchange是获得你更改下拉列表的一个状态
+  <option>---请选择---</option>
+  <option value="shandong">山东省</option>
+  <option value="hebei">河北省</option>
+  <option value="guangdong">广东省</option>
+  <option value="hunan">湖南省</option>
+</select>
+-->
+
+<select id="sel1">
+  <option>---请选择---</option>
+  <option value="shandong">山东省</option>
+  <option value="hebei">河北省</option>
+  <option value="guangdong">广东省</option>
+  <option value="hunan">湖南省</option>
+</select>
+
+
+
+<script type="text/javascript">
+  let sel1 = document.getElementById("sel1");
+  sel1.onchange = function () {
+    alert(sel1.value)
+  }
+
+</script>
+
+
+</body>
+</html>

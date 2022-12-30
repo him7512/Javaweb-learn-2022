@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /*
+    . 匹配除换行符以外的任意字符
+    \w 匹配字母或数字或下划线或汉字
+    \s 匹配任意的空白符
+    \d 匹配数字
+    \b 匹配单词的开始或结束
+    ^ 匹配字符串的开始
+    $ 匹配字符串的结束
+
+    * 重复零次或更多次
+    + 重复一次或更多次
+    ? 重复零次或一次
+    {n} 重复n次
+    {n,} 重复n次或更多次
+    {n,m} 重复n到m次
+
+    \W 匹配任意不是字母，数字，下划线，汉字的字符
+    \S 匹配任意不是空白符的字符
+    \D 匹配任意非数字的字符
+    \B 匹配不是单词开头或结束的位置
+    [^x] 匹配除了x以外的任意字符
+    [^aeiou] 匹配除了aeiou这几个字母以外的任意字符
+
+    正则表达式中()优先级最高
+    [0-9]表示0-9中任意一个字符出现1次
+    [A-Za-z0-9]表示A-Za-z0-9中任意一个字符出现1次
+    [A-Za-z0-9-]表示A-Z、a-z、0-9、-中任意一个字符出现1次
+    | 表示或者
+    \ 转义字符
+
+    怎么创建正则表达式：
+        第一种创建方式：
+            var regExp = /正则表达式/flags;
+        第二种创建方式：使用内置支持类RegExp
+            var regExp = new RegExp("正则表达式", "flags");
+
+        flags:
+            a   全局匹配
+            g   忽略大小写
+            m   多行搜索(如果/正则表达式/，m不能使用。/string/，m可以使用)
+
+    text方法：
+        true / false = /正则表达式/.test(string);    // 匹配 / 不匹配
+
+
+
+   */
+
+</script>
+
+QQ号的正则表达式：
+  ^[0-9]{1-9}{5,}$
+<br>
+他人写的Emile正则表达式：
+  ^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$
+<br>
+<br>
+<br>
+模拟用户注册信息界面<br>
+请填写您的邮箱：&nbsp;<input type="text" id="t1">&nbsp;
+<span id="error" style="font-size: 16px;"></span>
+<br>
+<input type="button" id="btn1" value="注册">
+
+<script type="text/javascript">
+    //先给按钮绑定监听
+    document.getElementById("btn1").onclick = function () {
+        var emile = document.getElementById("t1").value;
+        var if_emile = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(emile);
+        if (!if_emile) {
+            document.getElementById("error").style = "color: red;";
+            document.getElementById("error").innerText = "×邮箱地址不合法，请重新检查";
+            // alert("No");     // test
+        }else {
+            document.getElementById("error").style = "color: green;";
+            document.getElementById("error").innerText = "√邮箱地址合法，正在注册...";
+            // alert("Yes")     // test
+        }
+    }
+
+    //再给文本鼠标离开绑定监听
+    document.getElementById("t1").onblur = function () {
+        if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(document.getElementById("t1").value)) {
+            document.getElementById("error").style = "color: green;";
+            document.getElementById("error").innerText = "√邮箱地址合法";
+        }else {
+            document.getElementById("error").style = "color: red;";
+            document.getElementById("error").innerText = "×邮箱地址不合法;"
+        }
+    }
+
+    //再再给文本鼠标焦点绑定监听
+    document.getElementById("t1").onfocus = function () {
+        document.getElementById("error").innerText = "";
+    }
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

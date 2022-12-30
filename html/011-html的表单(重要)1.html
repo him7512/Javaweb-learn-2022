@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+
+<!--
+  1 什么是表单？
+    收集用户信息，表单展现之后，用户填写表单，点击提交按钮提交数据给指定的服务器地址
+  2 怎么固定一个表单？
+    使用form标签画表单
+  3 一个网页当中可以具有多个表单form
+  4 表单最终是需要提交数据给服务器的，form标签有一个action属性，这个属性用来指定服务器地址
+    action属性用来指定数据交给哪个服务器
+    action属性和超链接中的href属性一样，都可以向服务器发送请求(request)
+  5 http://192.168.43.126:8080/oa/save 这是请求路径，表单提交数据最终交给：
+    192.168.43.126主机上8080端口对应的软件
+-->
+
+<form action="http://192.168.43.126:8080/oa/save">
+    <!--画按钮可以使用input输入域-->
+    <!--submit具有提交表单的能力-->
+    <input type="submit"/>
+    <!--button仅是一个按钮-->
+    <input type="button" value="文字"/>
+</form>
+
+<br><br><br><br><br>
+
+<form action="http://192.168.43.126:8080/oa/save">
+    用户名:<input type="text"><br>
+    密&nbsp;&nbsp;&nbsp;码:<input type="password"><br>
+    <input type="submit">
+</form>
+
+<br><br><br><br><br>
+<!--
+    表单是以什么格式提交数据的？
+    http://192.168.43.126:8080/oa/login?username=xxx&userpwd=xxx
+    格式：action?name=value&name=value&name=value...
+    W3C中HTTP协议规定的，必须以这种协议提交给服务器
+    带name属性的一律提交给服务器
+    name没有写的时候，不会提交服务器，当value没有写的时候
+    String value = "";
+-->
+
+<form action="http://192.168.43.126:8080/oa/login">
+    <table align="center">
+        <tr>
+            <td>用户名</td>
+            <!--name属性必不可少-->
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="userpwd"></td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <input type="submit" value="登录">
+                &nbsp;&nbsp;&nbsp;
+                <input type="reset" value="清空">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
